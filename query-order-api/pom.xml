@@ -42,7 +42,7 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.axonframework/axon-spring-boot-starter -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.axonframework</groupId>
 			<artifactId>axon-spring-boot-starter</artifactId>
 			<version>4.5</version>
@@ -52,6 +52,12 @@
 			     <artifactId>axon-server-connector</artifactId>
 			   </exclusion>
 			</exclusions>
+		</dependency> -->
+		<!-- Axon -->
+		<dependency>
+			<groupId>org.axonframework</groupId>
+			<artifactId>axon-spring-boot-starter</artifactId>
+			<version>4.2</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
 		<dependency>
