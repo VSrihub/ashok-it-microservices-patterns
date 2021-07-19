@@ -1,0 +1,76 @@
+spring:
+  application:
+    name: medilab-doctor-service
+
+  h2:
+    console:
+      enabled: true
+      path: /h2Console
+
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/medilab-department-db
+#    username: root
+#    password: root
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+ 
+springdoc:
+  swagger-ui:
+    path: /doctor-doc.html
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true  
+
+server:
+  port: 5002
+  
+#resilience4j:
+#  circuitbreaker:
+#    configs:
+#        default:
+#          register-health-indicator: true
+#    instances:
+#      addDoctorCiruit: 
+#        minimum-number-of-calls: 5
+#        failure-rate-threshold: 50
+#        wait-duration-in-open-state: 30000
+#        permitted-number-of-calls-in-half-open-state: 2
+#resilience4j:
+#  retry:
+#    instances:
+#      addDoctorRetry: 
+#        max-attempts: 3
+#        wait-duration: 20000
+
+resilience4j:
+  ratelimiter:
+    configs:
+      default: 
+        register-health-indicator: true
+    instances:
+      addDoctorRateLimiter: 
+        timeout-duration: 5000
+        limit-refresh-period: 5000
+        limit-for-period: 1
+          
+          
+          
+
+          
+        
+          
+      
+                  
